@@ -1,9 +1,10 @@
 import { model, models, Schema } from "mongoose";
 import {
   IMedia,
-  IProductDocumet,
+  
   IVariantOption,
 } from "shared/types/prouct.interface";
+import { IProductDocumet } from "../interface/product.document";
 const variantSchema = new Schema<IVariantOption>(
   {
     quality: String,

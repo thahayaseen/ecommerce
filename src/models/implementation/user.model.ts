@@ -1,10 +1,10 @@
 import mongoose, { Document, Schema ,Types} from "mongoose";
 import { IUser } from "shared/types";
+import { IUserModel } from "../interface/IuserDocumet";
 
-export interface IUserModel extends Document, Omit<IUser, "_id"> {}
 
 const userSchema = new Schema<IUserModel>({
-  _id:Types.ObjectId,
+ 
   username: { type: String, required: true },
   role: {
     type: String,
