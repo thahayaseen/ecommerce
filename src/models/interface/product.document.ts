@@ -1,3 +1,3 @@
-import { IProduct } from "shared/types/prouct.interface";
+import { IProduct } from "shared/types/product.interface";
 
 export interface IProductDocumet extends Document,IProduct{}

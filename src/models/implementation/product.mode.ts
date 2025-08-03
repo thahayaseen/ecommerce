@@ -3,8 +3,8 @@ import {
   IMedia,
   
   IVariantOption,
-} from "shared/types/prouct.interface";
-import { IProductDocumet } from "../interface/product.document";
+} from "shared/types/index";
+import { IProductDocumet, } from "../interface/product.document";
 const variantSchema = new Schema<IVariantOption>(
   {
     quality: String,
