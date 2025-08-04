@@ -33,7 +33,7 @@
   "include": [
     "src/**/*",
     "./types/**/*.d.ts",
-    "../shared/types/**/*.d.ts",
+    "./shared/types/**/*.d.ts",
     "types",
     "../shared/types/**/*.ts",
     "types"
