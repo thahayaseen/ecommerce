@@ -1,3 +1,5 @@
+import { Types } from "mongoose";
+
 export interface IVariantOption {
   quality?: string;
   size?: number;
@@ -24,6 +26,7 @@ export interface IDescription {
 }
 
 export interface IProduct {
+  _id:Types.ObjectId;
   title: string;
   description?: IDescription;
   isVariant?: boolean;

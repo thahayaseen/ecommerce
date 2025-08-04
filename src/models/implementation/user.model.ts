@@ -1,9 +1,10 @@
 import mongoose, { Document, Schema ,Types} from "mongoose";
-import { IUser } from "shared/types";
+
+import { IUserDocument } from "../interface/IuserDocumet";
 
 
 
-const userSchema = new Schema<IUser>({
+const userSchema = new Schema<IUserDocument>({
  
   username: { type: String, required: true },
   role: {
@@ -21,4 +22,4 @@ const userSchema = new Schema<IUser>({
   },
 });
 
-export const userModel = mongoose.model<IUser>("User", userSchema);
+export const userModel = mongoose.model<IUserDocument>("User", userSchema);

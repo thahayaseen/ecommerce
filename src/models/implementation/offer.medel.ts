@@ -1,3 +1,4 @@
+import { IOfferDocumet } from '../interface/Ioffer.mode';
 import { IOffer } from './../../../shared/types/offers.interface';
 import { model, Schema, SchemaDefinition, Types } from "mongoose";
 
@@ -30,5 +31,5 @@ const OfferSchmaDef: SchemaDefinition<IOffer    > = {
     required: false,
   },
 };
-const offerSchma = new Schema(OfferSchmaDef);
-export default model('Offers',offerSchma)
+const offerSchma = new Schema<IOfferDocumet>(OfferSchmaDef);
+export default model<IOfferDocumet>('Offers',offerSchma)
