@@ -4,7 +4,7 @@ export interface IVariantOption {
   quality?: string;
   size?: number;
   color?: string;
-  price?: number;
+  price?: IPrice;
   stock?: number;
 }
 

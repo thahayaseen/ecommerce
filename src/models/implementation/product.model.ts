@@ -1,9 +1,5 @@
 import { model, models, Schema } from "mongoose";
-import {
-  IMedia,
-  
-  IVariantOption,
-} from "shared/types/index";
+import { IMedia, IVariantOption } from "shared/types/index";
 import { IProductDocumet } from "../interface/product.document";
 
 const variantSchema = new Schema<IVariantOption>(
@@ -11,7 +7,11 @@ const variantSchema = new Schema<IVariantOption>(
     quality: String,
     size: Number,
     color: String,
-    price: Number,
+    price: {
+      original: Number,
+      discounted: Number,
+      discountPercent: Number,
+    },
     stock: Number,
   },
   { _id: false }
@@ -53,12 +53,14 @@ const productSchema = new Schema<IProductDocumet>(
   },
   { timestamps: true }
 );
-productSchema.pre('save', function (next) {
+productSchema.pre("save", function (next) {
   if (this.isVariant && (!this.variants || this.variants.length === 0)) {
     return next(new Error("Variants must be provided if isVariant is true"));
   }
-  if (!this.isVariant && (!this.price || typeof this.stock !== 'number')) {
-    return next(new Error("Price and stock must be provided if isVariant is false"));
+  if (!this.isVariant && (!this.price || typeof this.stock !== "number")) {
+    return next(
+      new Error("Price and stock must be provided if isVariant is false")
+    );
   }
   next();
 });

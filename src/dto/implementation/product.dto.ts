@@ -1,10 +1,10 @@
 import { Types } from 'mongoose';
-import { IProductDTO } from '../../shared/types/dto/product.dto';
-import { IDescription, IMedia, IPrice, IVariantOption } from 'shared/types';
+import { IProductDTO } from '../../../shared/types/dto/product.dto';
+import { IDescription, IMedia, IPrice, IProduct, IVariantOption } from 'shared/types';
 // Main DTO Class
 export class ProductDTO implements IProductDTO {
-  _id: Types.ObjectId;
-  title: string;
+  unique: Types.ObjectId;
+  ProductName: string;
   description?: IDescription;
   isVariant?: boolean;
   variants?: IVariantOption[];
@@ -14,9 +14,9 @@ export class ProductDTO implements IProductDTO {
   createdAt?: Date;
   updatedAt?: Date;
 
-  constructor(data: IProductDTO) {
-    this._id = data._id;
-    this.title = data.title;
+  constructor(data: IProduct) {
+    this.unique = data._id;
+    this.ProductName = data.title;
     this.description = data.description;
     this.isVariant = data.isVariant;
     this.variants = data.variants;

@@ -2,12 +2,11 @@
 
 import { Types } from "mongoose";
 
-// Interfaces (you can import from shared if needed)
 export interface IVariantOption {
   quality?: string;
   size?: number;
   color?: string;
-  price?: number;
+  price?: IPrice;
   stock?: number;
 }
 
@@ -29,10 +28,9 @@ export interface IDescription {
 }
 
 export interface IProductDTO {
-  _id: Types.ObjectId;
-  title: string;
+  unique: Types.ObjectId;
+  ProductName: string;
   description?: IDescription;
-  isVariant?: boolean;
   variants?: IVariantOption[];
   price?: IPrice;
   stock?: number;
@@ -40,5 +38,3 @@ export interface IProductDTO {
   createdAt?: Date;
   updatedAt?: Date;
 }
-
-
